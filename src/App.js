@@ -16,7 +16,6 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
           setweatherData(data);
-          console.log(data);
           setCity("");
         });
     }
@@ -39,7 +38,7 @@ function App() {
       ) : (
         <>
           {i.map((i) => (
-            <Table weatherData={weatherData} i={i} />
+            <Table weatherData={weatherData} i={i} key={i}/>
           ))}
         </>
       )}

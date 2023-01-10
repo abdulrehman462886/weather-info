@@ -5,7 +5,7 @@ export default function Table(props) {
   return (
     <div className="container">
       <div className="container">
-        <table className="table my-3">
+        <table className="table my-2">
           <thead>
             <tr>
               <th scope="col">Date</th>
