@@ -21,6 +21,7 @@ function App() {
         });
     }
   };
+  const i = [0, 1, 2, 3, 4, 5];
   return (
     <div className="container">
       <input
@@ -37,7 +38,9 @@ function App() {
         </div>
       ) : (
         <>
-          <Table weatherData={weatherData}/>
+          {i.map((i) => (
+            <Table weatherData={weatherData} i={i} />
+          ))}
         </>
       )}
       {weatherData.cod === "404" ? (

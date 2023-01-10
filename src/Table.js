@@ -18,9 +18,8 @@ export default function Table(props) {
           </thead>
           <tbody>
             {props.weatherData.list.map((items, index) => {
-              for (let i = 0; i < 5; i++) {
-                if (items.dt_txt.substring(8, 10) == new Date().getDate() + i)
-                  return ( 
+                if (items.dt_txt.substring(8, 10) == new Date().getDate() + props.i){
+                  return (
                     <tr key={index}>
                       <td>{items.dt_txt}</td>
                       <td>{Math.round(items.main.temp)}F</td>
@@ -29,8 +28,8 @@ export default function Table(props) {
                       <td>{items.wind.speed}</td>
                       <td>{props.weatherData.city.name}</td>
                     </tr>
-                  );
-              }
+                  );   
+                }
             })}
           </tbody>
         </table>
