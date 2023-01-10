@@ -18,7 +18,7 @@ export default function Table(props) {
           </thead>
           <tbody>
             {props.weatherData.list.map((items, index) => {
-              for (let i = 0; i < 3; i++) {
+              for (let i = 0; i < 5; i++) {
                 if (items.dt_txt.substring(8, 10) == new Date().getDate() + i)
                   return ( 
                     <tr key={index}>
