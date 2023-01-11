@@ -20,11 +20,11 @@ export default function RadioButton(props) {
         className="form-check-input"
         type="radio"
         name="degree-type"
-        id="farenheit"
+        id="kelvin"
         value="fahrenheit"
         onChange={props.updateUnit}
         />
-        <label className="form-check-label" htmlFor="farenheit">Farenheit</label>
+        <label className="form-check-label" htmlFor="kelvin">Kelvin</label>
       </div>
     </div>
   )
