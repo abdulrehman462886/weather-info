@@ -1,13 +1,29 @@
 import React from "react";
 import { useState } from "react";
 import "./App.css";
+import RadioButton from "./RadioButton";
 import Table from "./Table";
 
 function App() {
   const apiKey = "01df7646ebd1d71af2c4f78f747f263a";
   const [weatherData, setweatherData] = useState([{}]);
   const [city, setCity] = useState("");
+  const [temprature, setTemprature] = useState("");
+  const updateUnit = (event) => setTemprature(event.target.value);
 
+  const foo = () => {
+    let tablelist = [];
+    for (let i = 0; i < 6; i++)
+      tablelist.push(
+        <Table
+          weatherData={weatherData}
+          temprature={temprature}
+          i={i}
+          key={i}
+        />
+      );
+    return tablelist;
+  };
   const getWeather = (event) => {
     if (event.key === "Enter") {
       fetch(
@@ -20,7 +36,6 @@ function App() {
         });
     }
   };
-  const i = [0, 1, 2, 3, 4, 5];
   return (
     <div className="container">
       <input
@@ -33,13 +48,14 @@ function App() {
 
       {typeof weatherData.list === "undefined" ? (
         <div>
-          <p>Welcome to weather app! Enter in a city to get weather of</p>
+          <p>Welcome to weather app! Enter a City to get Weather of</p>
         </div>
       ) : (
         <>
-          {i.map((i) => (
-            <Table weatherData={weatherData} i={i} key={i}/>
-          ))}
+          <RadioButton
+            updateUnit={updateUnit}
+          ></RadioButton>
+          {foo()}
         </>
       )}
       {weatherData.cod === "404" ? (
